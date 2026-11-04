@@ -13,7 +13,7 @@ jobs:
     
         - name: Write .env File
           run: |
-          echo '${{ secrets.DOTENV }}' >> .env
+              echo '${{ secrets.DOTENV }}' >> .env
           
         - name: Dowload File
           run: node /app/download.js ${{ github.event.inputs.url }}
