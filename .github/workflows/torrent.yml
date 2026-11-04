@@ -10,15 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     container: subekti13/torrent-downloader:latest
     steps:
+    
         - name: Write .env File
-        run: |
+          run: |
           echo '${{ secrets.DOTENV }}' >> .env
           
         - name: Dowload File
-        run: node /app/download.js ${{ github.event.inputs.url }}
+          run: node /app/download.js ${{ github.event.inputs.url }}
         
         - name: LS
-        run: cd /data && ls -la
+          run: cd /data && ls -la
 
         - name: Upload to Drive
-        run: node /app/upload.js
+          run: node /app/upload.js
